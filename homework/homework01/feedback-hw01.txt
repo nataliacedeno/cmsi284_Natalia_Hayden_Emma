@@ -1,0 +1,39 @@
+
+
+Evaluation Criteria ~ homework01
+CMSI 284 Section 02 Spring 2021
+=================================
+
+SAYHELLO.C
+   file exists          1/1 pt.
+   file compiles        1/1 pt.
+   program runs         1/1 pt.
+   prompts user       0.5/1 pt.
+   reads input          1/1 pt.
+   displays hello name  1/1 pt.
+SAYHELLO.ASM
+   file exists          1/1 pt.
+   file assembles       1/1 pt.
+   programruns          1/1 pt.
+GENERAL
+   code style           1/1 pt.
+
+Total possible points: 10
+
+========================================================
+
+TOTAL EARNED POINTS:
+   you earned 9.5/10 which is 95% which is an A
+
+========================================================
+SPECIFIC COMMENTS/FEEDBACK:
+
+Looks like you have everything working, although for the "C" program
+you were supposed to prompt the user for her name and THEN output the
+hello message.
+
+You've done it all in one line, so there's no prompt.  However, since
+you figured out how to combine all the input and output functionality in
+a single code line, you still earn 1/2 credit for initiative!
+
+Nice!

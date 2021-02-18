@@ -1,0 +1,18 @@
+	    jmp start;
+prev:	0;
+crnt:   1;
+next:   0;
+limit:	10;
+one:    1;
+start:	load prev;
+        write 255;
+	    add crnt;
+        store next;
+        load crnt;
+        store prev;
+        load next;
+        store crnt;
+        load limit;
+        sub one;
+        jgz start;
+end:    jump end;

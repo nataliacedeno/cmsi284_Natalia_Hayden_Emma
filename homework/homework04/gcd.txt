@@ -1,0 +1,49 @@
+        jmp start;
+n1:     0;
+n2:     0;
+cnt:    1;
+cnst:   1;
+limit:  0;
+start:  load n1;
+        read 100;
+        store n1;
+        
+        load n2;
+        read 0x100;
+        store n2;
+
+        sub n1;
+        jlz lim;
+        load limit;
+        add n1;
+        store limit;
+
+lim:    load limit;
+        add n2;
+        store limit;
+
+begin:
+        load n1;
+        mod cnt;
+        jz two;
+        jump itr8;
+
+two:    load n2;
+        mod cnt;
+        jz gcd;
+
+gcd:    load cnt;
+        write 0x200;
+
+itr8:   load cnt;
+        add cnst;
+        store cnt;
+        sub limit;
+        jlz begin;
+
+end:    jmp end;
+
+
+
+        
+

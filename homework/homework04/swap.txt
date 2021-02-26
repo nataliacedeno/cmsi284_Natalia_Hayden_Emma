@@ -1,0 +1,12 @@
+temp:   0;
+temp2:  0;
+ 
+        store temp;
+
+        load 0x30AA;
+        store temp2;
+        
+        load temp;
+        store 0x30AA;
+
+        load temp2;

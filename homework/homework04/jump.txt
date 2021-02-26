@@ -1,0 +1,5 @@
+lim:    0;
+// subtract what is in the accumulator by limit (zero)
+        sub limit;
+        jlz start;
+        jmp 0x837BBE;

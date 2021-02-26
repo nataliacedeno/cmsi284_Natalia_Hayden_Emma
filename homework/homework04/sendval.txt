@@ -1,0 +1,11 @@
+C0000004                jmp start;
+00000000    current:    0;
+00000001    constant:   1;
+000000FF    limit:      255;
+00000001    start:      load current;
+30000008                write 0x08;
+40000002                add constant;
+10000001                store current;
+50000003                sub limit;
+E0000004                jlz start;
+C000000A    end:        jmp end;

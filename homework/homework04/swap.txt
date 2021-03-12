@@ -1,6 +1,5 @@
 temp:   0;
 temp2:  0;
- 
         store temp;
 
         load 0x30AA;

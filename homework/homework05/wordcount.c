@@ -25,15 +25,17 @@ int main(int argc, char *argv[]) {
         return 2;
     }
 
+    int previous = ' ';
     while( 1 ) {
         int c = fgetc( in );
-        if (isspace(c)) {
+        if (!isspace(c) && isspace(previous) && c != EOF) {
             wordCount++;
         }
-        if( c == EOF ) break;
-    }
+        previous = c;
 
-    wordCount++;
+        if( c == EOF ) break;
+       
+    }
 
     printf("Word count: %d", wordCount);
 

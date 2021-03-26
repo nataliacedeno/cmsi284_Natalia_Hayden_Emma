@@ -37,11 +37,6 @@ SPECIFIC COMMENTS/FEEDBACK:
 
 Nice work on this assignment.  Just a couple of notes:
 
-First thing is, you never handle the command line arguments per the problem
-specification.  All the programs except holdit were supposed to take their
-arguments from the command line.  You *do* take the "32" and "64" for the
-dec2hex program, and you do error check that one ~ GOOD!
-
 On problem 1, you don't error check the entered value ~ "asdf" still shows
 all zeros with no error message.
 

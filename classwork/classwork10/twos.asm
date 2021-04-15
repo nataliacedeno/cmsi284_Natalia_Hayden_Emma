@@ -5,7 +5,7 @@ start:   mov         rax, 0x02000004         ; system call for write [Linux shou
          mov         rdi, 1                  ; file handle 1 is stdout
          mov         rsi, message            ; address of string to output
 pow:     ;shl         rsi, 1                  ; shift left 1 bit
-         ;mov         r8, [message]       
+         mov         r8, [message]       
          mov         rdx, 7                  ; number of bytes
          syscall                             ; invoke operating system to do the write
          cmp         rsi, 1000000            ; compare power to limit
@@ -15,4 +15,4 @@ pow:     ;shl         rsi, 1                  ; shift left 1 bit
          syscall                             ; invoke operating system to exit
 
          section     .data
-message: dw          49
+message: db          49

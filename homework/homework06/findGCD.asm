@@ -1,88 +1,65 @@
-        global _main
-        extern   _atoi
-        extern   _printf  
-        extern   _scanf
+; findGCD for Windows32
+; nasm -fwin32 findGCD.asm && gcc findGCD.obj -o findGCD.exe   
+   
+    global _main
+    extern _atoi
+    extern _printf  
+    extern _scanf
+    extern _fflush  
         
-        section .text 
+    section .text 
+
 _main: 
-        push rbx
+    push ebx
 
-  
-        mov rdi, input
-        push rdi
-        mov rdi, format
-        push rdi 
-        call _scanf
-        add rsp, 8 ;adjust stack pointer 
+    push prompt1
+    call _printf
 
-        mov rdi, input
-        push rdi 
-        call _printf
-        add rsp, 4 
+    xor eax, eax
+    push eax
+    call _fflush
+ 
+    push n1
+    push format
+    call _scanf
 
+    push prompt2
+    call _printf
+ 
+    xor eax, eax
+    push eax
+    call _fflush
 
+    push n2
+    push format
+    call _scanf
 
-;         add rsi, 8      ;next argument 
-;         push rdx
-;         push rsi 
-;         mov rdx, [rsi] get second argument 
-;         call _atoi
-;         pop rsi
-;         pop rdx 
+Loop:
+    mov ecx, [n2]
+    cmp ecx, 0
+    je End
 
-;         load n1;
-;         read 100;
-;         store n1;
-        
-;         load n2;
-;         read 0x100;
-;         store n2;
+    mov edx, 0
+    mov eax, [n1]
+    mov ecx, [n2]
+    div ecx
 
-;         sub n1;
-;         jlz lim;
-;         load limit;
-;         add n1;
-;         store limit;
+    mov eax, [n2]
+    mov [n1], eax
+    mov [n2], edx
+    jmp Loop
 
-; lim:    load limit;
-;         add n2;
-;         store limit;
+End:  
+    push n1
+    call _printf ; print result
 
-; begin:
-;         load n1;
-;         mod cnt;
-;         jz two;
-;         jump itr8;
-
-; two:    load n2;
-;         mod cnt;
-;         jz gcd;
-
-; gcd:    load cnt;
-;         write 0x200;
-
-; itr8:   load cnt;
-;         add cnst;
-;         store cnt;
-;         sub limit;
-;         jlz begin;
-
-
-; incorrect_arg: 
-;         mov rdi, incorrect_arg_message 
-;         call puts 
-;         ret 
-
-end:  
-        pop rbx
-        ret
+    pop ebx
+    mov eax, 0
+    ret
 
     section .data
-input:  db 0 
-format: db "%d", 0 
-n1:     db  0
-n2:     db  0
-cnt:    db  1
-cnst:   db  1
-limit:  db  0
-incorrect_arg_message: db "Wrong number of inputs", 0 
+prompt1:    db "Enter First Number: ", 0
+prompt2:    db "Enter Second Number: ", 0
+format:     db "%s", 0 
+n1:         db  0
+n2:         db  0

@@ -8,7 +8,7 @@ int main(){
     // see if first character read is 1 or zero 
 
     if (*b == 1 ){          
-        printf("Litte endian \n"); 
+        printf("Little endian \n"); 
     } else{ 
         printf("Big endian \n"); 
     }

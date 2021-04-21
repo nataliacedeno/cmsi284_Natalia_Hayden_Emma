@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <inttypes.h>
-#include "makeNBO.c"
+#include "makeNBO.h"
 
 int main(int argc, char *argv[]){ 
 

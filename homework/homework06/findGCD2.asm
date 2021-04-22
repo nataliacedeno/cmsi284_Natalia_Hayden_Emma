@@ -1,37 +1,25 @@
-; findGCD for Windows32
-; nasm -fwin32 findGCD.asm && gcc findGCD.obj -o findGCD.exe   
+; findGCD2 for Windows32
+; takes input from c arg
+; nasm -fwin32 findGCD2.asm && gcc findGCD2.obj -o findGCD2.exe   
    
-    global _main
+    global _findGCD2
     extern _printf  
     extern _scanf
     extern _fflush  
         
     section .text 
 
-_main: 
+_findGCD2: 
     push ebx
+    push ebp
 
-    push prompt1
-    call _printf
+    mov ebp, esp
 
-    xor eax, eax
-    push eax
-    call _fflush
- 
-    push n1
-    push format
-    call _scanf
+    mov eax, [ebp + 12]
+    mov ebx, [ebp + 16]
 
-    push prompt2
-    call _printf
- 
-    xor eax, eax
-    push eax
-    call _fflush
-
-    push n2
-    push format
-    call _scanf
+    mov [n1], eax
+    mov [n2], ebx
 
 Loop:
     mov ecx, [n2]
@@ -50,13 +38,14 @@ Loop:
 
 End:  
 
-    mov ecx, [n1]
-    push ecx
-    push format
-    call _printf ; print result
+    ;mov ecx, [n1]
+    ;push ecx
+    ;push format
+    ;call _printf ; print result
 
+    pop ebp
     pop ebx
-    mov eax, 0
+    mov eax, [n1]
     ret
 
     section .data
